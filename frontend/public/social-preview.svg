@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Subhradip Roy — Senior Software Engineer</title>
+  <desc id="desc">Subhradip Roy, Senior Software Engineer</desc>
+  <rect width="1200" height="630" fill="#0B0F14"/>
+  <rect x="72" y="72" width="10" height="486" fill="#38BDF8"/>
+  <text x="132" y="250" fill="#38BDF8" font-family="sans-serif" font-size="86" font-weight="700">SR</text>
+  <text x="132" y="350" fill="#F8FAFC" font-family="sans-serif" font-size="52" font-weight="700">Subhradip Roy</text>
+  <text x="132" y="420" fill="#94A3B8" font-family="sans-serif" font-size="34">Senior Software Engineer</text>
+</svg>
