@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Button } from './ui/Button'
+import { useSocialLinks } from '../hooks/useSocialLinks'
 
 const resumeUrl = '/documents/Subhradip_Roy_Resume.pdf'
 
@@ -14,6 +15,7 @@ const navLinks = [
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { data: socialLinks } = useSocialLinks()
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -51,12 +53,24 @@ export const Header = () => {
           ))}
         </ul>
 
-        {/* Right side - Resume button (desktop) and hamburger (mobile) */}
+        {/* Right side - Resume, LinkedIn, and hamburger controls */}
         <div className="flex items-center gap-4">
-          {/* Resume button - desktop only */}
-          <Button href={resumeUrl} download="Subhradip_Roy_Resume.pdf" size="sm" className="hidden md:inline-flex">
+          <Button href={resumeUrl} download="Subhradip_Roy_Resume.pdf" size="sm" className="hidden order-1 md:inline-flex">
             Resume
           </Button>
+
+          {/* LinkedIn button - desktop only */}
+          {socialLinks?.linkedin && (
+            <Button
+              href={socialLinks.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="sm"
+              className="hidden order-2 md:inline-flex"
+            >
+              LinkedIn <span aria-hidden="true" className="ml-2">→</span>
+            </Button>
+          )}
 
           {/* Mobile Menu Button */}
           <button
