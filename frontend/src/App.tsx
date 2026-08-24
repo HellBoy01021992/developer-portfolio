@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Home } from './pages/Home'
 import { SeoMetadata } from './components/SeoMetadata'
+import { useApiKeepAlive } from './hooks/useApiKeepAlive'
 
 // Create a client for React Query
 const queryClient = new QueryClient({
@@ -14,6 +15,8 @@ const queryClient = new QueryClient({
 })
 
 function App() {
+  useApiKeepAlive()
+
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
