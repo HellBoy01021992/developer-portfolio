@@ -70,7 +70,7 @@ jobs:
       - name: Build frontend
         env:
           GITHUB_PAGES: true
-          VITE_API_URL: https://developer-portfolio-api-pc7i.onrender.com/
+          VITE_API_URL: https://developer-portfolio-api-pc7i.onrender.com
           VITE_SITE_URL: https://hellboy01021992.github.io/developer-portfolio/
         run: npm run build
 
