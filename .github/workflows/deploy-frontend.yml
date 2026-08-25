@@ -49,7 +49,7 @@ jobs:
           GITHUB_PAGES: true
           VITE_API_URL: https://developer-portfolio-api-pc7i.onrender.com/api/v1
           VITE_SITE_URL: https://hellboy01021992.github.io/developer-portfolio/
-        run: npm run build -- --mode github
+        run: npm run build
 
       - name: Verify GitHub Pages build
         run: |
