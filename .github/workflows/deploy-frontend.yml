@@ -48,7 +48,7 @@ jobs:
         env:
           VITE_API_URL: https://developer-portfolio-api-pc7i.onrender.com/api/v1
           VITE_SITE_URL: https://hellboy01021992.github.io
-        run: npm run build
+        run: npm run build -- --mode github
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4
