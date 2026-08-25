@@ -1,6 +1,18 @@
 <?php
 
-$frontendUrl = env('FRONTEND_URL');
+$frontendUrls = env('FRONTEND_URLS');
+
+if ($frontendUrls) {
+    $frontendUrls = array_values(array_filter(array_map(
+        'trim',
+        explode(',', $frontendUrls)
+    )));
+} else {
+    $frontendUrls = env('FRONTEND_URL')
+        ? [env('FRONTEND_URL')]
+        : [];
+}
+
 $isProduction = env('APP_ENV') === 'production';
 $developmentOrigins = [
     'http://localhost:5173',
@@ -15,14 +27,12 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [
-        ...($isProduction
-            ? ($frontendUrl ? [$frontendUrl] : [])
-            : array_values(array_unique(array_merge(
-                $developmentOrigins,
-                $frontendUrl ? [$frontendUrl] : [],
-            )))),
-    ],
+    'allowed_origins' => $isProduction
+        ? $frontendUrls
+        : array_values(array_unique(array_merge(
+            $developmentOrigins,
+            $frontendUrls,
+    ))),
 
     'allowed_origins_patterns' => $isProduction ? [] : [
         '#http://localhost:[0-9]+#',
