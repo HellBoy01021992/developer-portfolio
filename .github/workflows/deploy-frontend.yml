@@ -44,6 +44,29 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Debug Vite configuration
+        run: |
+          echo "Working directory:"
+          pwd
+
+          echo ""
+          echo "Vite config files:"
+          ls -la vite.config.*
+
+          echo ""
+          echo "vite.config.js:"
+          cat vite.config.js
+
+          echo ""
+          echo "vite.config.ts:"
+          cat vite.config.ts 2>/dev/null || true
+
+          echo ""
+          echo "Environment:"
+          echo "GITHUB_PAGES=$GITHUB_PAGES"
+          echo "VITE_API_URL=$VITE_API_URL"
+          echo "VITE_SITE_URL=$VITE_SITE_URL"
+
       - name: Build frontend
         env:
           GITHUB_PAGES: true
